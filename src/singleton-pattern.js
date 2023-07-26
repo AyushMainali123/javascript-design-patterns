@@ -27,7 +27,7 @@ class Counter {
 
 const counter = Object.seal(new Counter());
 
-export default counter;
+// export default counter;
 
 
 
@@ -46,6 +46,8 @@ const counterObj = {
   },
 };
 
+
 const sealedCounterObj = Object.seal(counterObj);
+
 
 export default sealedCounterObj;
