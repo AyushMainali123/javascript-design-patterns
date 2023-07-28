@@ -1,8 +1,5 @@
 
-const counterObject = {
-  count: Symbol('count'),
-  
-}
+
 const count = Symbol('count');
 const counter = {
   [count]: 1,
