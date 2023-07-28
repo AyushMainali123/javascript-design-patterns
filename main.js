@@ -1,7 +1,6 @@
-import counter from "./src/singleton-pattern";
+import counterProxy from "./src/proxy-pattern";
 
-console.log(
-  counter.increment(),
-  counter.increment(),
-  (counter.apple = "apple")
-);
+console.log(counterProxy.getCount());
+console.log(counterProxy.increment());
+console.log(counterProxy.increment());
+console.log(counterProxy.getCount());

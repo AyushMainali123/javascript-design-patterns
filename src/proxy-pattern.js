@@ -1,16 +1,41 @@
-const person = {
-  name: "John Doe",
-  age: 42,
-  nationality: "American",
+
+const counterObject = {
+  count: Symbol('count'),
+  
+}
+const count = Symbol('count');
+const counter = {
+  [count]: 1,
+  increment: function () {
+    this[count]++;
+  },
+  decrement: function () {
+    this[count]--;
+  },
+  getCount: function () {
+    return this[count];
+  },
 };
 
 
-const personProxy = new Proxy(person, {
-  get: (obj, prop) => {
-    console.log(`The value of ${prop} is ${Reflect.get(obj, prop)}`);
+const counterProxy = new Proxy(counter, {
+  get: function (object, property) {
+
+    if (Reflect.has(object, property) === false) {
+      throw new Error("The property does not exist!");
+    }
+
+    return Reflect.get(object, property);
+
   },
-  set: (obj, prop, value) => {
-    console.log(`Changed ${prop} from ${obj[prop]} to ${value}`);
-    Reflect.set(obj, prop, value);
-  },
-});
+  set: function (object, property, value) {
+
+    if(Reflect.has(object, property) === false) {
+      throw new Error("This property is not a valid property");
+    }
+
+    return Reflect.set(object, property, value);
+  }
+})
+
+export default counterProxy;
