@@ -1,6 +1,8 @@
-import counterProxy from "./src/proxy-pattern";
+import SuperCounter from "./src/prototype-pattern";
 
-console.log(counterProxy.getCount());
-console.log(counterProxy.increment());
-console.log(counterProxy.increment());
-console.log(counterProxy.getCount());
+const superCounter = new SuperCounter();
+
+console.log(superCounter.count);
+superCounter.incrementByX(10).increment().increment().decrement().decrementByX(3);
+console.log(superCounter.count);
+console.log(superCounter);

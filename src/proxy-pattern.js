@@ -1,5 +1,3 @@
-
-
 const count = Symbol('count');
 const counter = {
   [count]: 1,
