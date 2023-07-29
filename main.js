@@ -1,7 +1,5 @@
-import dishGenerator from "./src/factory-pattern";
+import Dishfactory from "./src/factory-pattern-1.js";
 
-dishGenerator.create("butter chicken", 4);
-dishGenerator.create("chicken curry", 6);
-dishGenerator.create("butter chicken", 3);
-
-console.log(dishGenerator.getDishes());
+console.log(
+  Dishfactory.create("chicken curry", 2).create("butter chicken", 8).getDishes()
+);
