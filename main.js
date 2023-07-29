@@ -1,6 +1,7 @@
-import {counter, mathematicalOperations} from "./src/prototype-pattern-fn";
+import dishGenerator from "./src/factory-pattern";
 
-console.log(mathematicalOperations.add(2, 3)); //Prints 5
-console.log(mathematicalOperations.sin(1.5708)); // Prints 0.999999999999 ~ 1
-console.log(counter.increment().increment().increment().increment().decrement().getCount()); // Prints 3
-console.log(counter.reset().getCount()); // Prints 0
+dishGenerator.create("butter chicken", 4);
+dishGenerator.create("chicken curry", 6);
+dishGenerator.create("butter chicken", 3);
+
+console.log(dishGenerator.getDishes());
